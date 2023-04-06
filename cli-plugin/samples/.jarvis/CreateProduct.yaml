@@ -1,0 +1,37 @@
+language: csharp
+  sdk: .net 6 
+  namespace: MyCrud.Application.Behavior.CreateProduct
+  file-scoped:
+  immutabilty:
+  imports: 
+    - mediatr
+    - fluentivalidation
+
+patterns:
+  - Money
+  - CQRS
+
+enums:
+  ProductCategory(byte):
+    - ELETRONICS = 1
+    - HOME
+    - FASHION
+
+
+behavior:
+  CreateProductCommand:
+    validator:
+      - name.length > 3 and name.length <= 20 and not null
+        - price > 0 and not null
+        - expireDate not null
+    dto:
+      type: sealed class
+      immutable:
+      props:
+        - name: string
+        - price: Money
+        - category: ProductCategory
+        - expireDate: datetime
+    handler:
+      deps:
+        IApplicationDbContext

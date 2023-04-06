@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JarvisGPT.Api", "JarvisGPT.Api\JarvisGPT.Api.csproj", "{0813A8E3-F6BA-45C3-A627-846760A877CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JarvisGPT.Application", "JarvisGPT.Application\JarvisGPT.Application.csproj", "{C6546508-1464-4CA2-A40E-74F83CACC780}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0813A8E3-F6BA-45C3-A627-846760A877CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0813A8E3-F6BA-45C3-A627-846760A877CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0813A8E3-F6BA-45C3-A627-846760A877CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0813A8E3-F6BA-45C3-A627-846760A877CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6546508-1464-4CA2-A40E-74F83CACC780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6546508-1464-4CA2-A40E-74F83CACC780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6546508-1464-4CA2-A40E-74F83CACC780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6546508-1464-4CA2-A40E-74F83CACC780}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

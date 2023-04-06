@@ -1,0 +1,39 @@
+language: csharp
+  sdk: .net 6 
+  namespace: MyCrud.Domain.Entities
+  file-scoped:
+  immutabilty:
+
+patterns:
+  - DomainDrivenDesign
+  - Money
+
+classes:
+  - BaseDomainEvent:
+      props:
+        - id: guid
+  - BaseEntity<Key>:
+      props:
+        - id: <Key>
+        - events: List<BaseDomainEvent> (private set)
+      methods:
+        - addevent(BaseDomainEvent)
+
+
+events:
+  - CreatedProductEvent
+
+entities:
+  - Product extends BaseEntity<guid>:
+      props:
+        - name: string
+        - price: Money
+        - category: ProductCategory
+        - expireDate: datetime
+        - registerDate: datetime
+      methods:
+        - create(CreateProductCommand):
+          events:
+            - CreatedProductEvent
+      deps:
+        - IDatetimeProvider
