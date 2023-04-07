@@ -8,15 +8,18 @@ import hashlib
 from pathlib import Path
 
 output_extensions = {
-    'csharp': 'cs',
-    'python3': 'py',
-    'python': 'py',
-    'javascript': 'js',
-    'typescript': 'ts',
-    'golang': 'go',
-    'html': 'html',
-    'sql': 'sql',
-    'dart': 'dart'
+    'csharp': '.cs',
+    'python3': '.py',
+    'python': '.py',
+    'javascript': '.js',
+    'typescript': '.ts',
+    'golang': '.go',
+    'html': '.html',
+    'sql': '.sql',
+    'dart': '.dart',
+    'json': '.json',
+    'c': '.c',
+    'Makefile': ''
 }
 
 CACHE_DIR = "~/.jarvis-cache"
@@ -129,7 +132,7 @@ def process_file(file_path: str,output_extensions: dict[str, str], api_url: str)
     if result is not None:
         print('cache hit')
         target_full_path = os.path.join(os.path.split(
-            file_path)[0], '..', f'{filename}.{output_target_file_extension}')
+            file_path)[0], '..', f'{filename}{output_target_file_extension}')
         write_file_content(target_full_path, result)
         print('OK')
         return
@@ -142,7 +145,7 @@ def process_file(file_path: str,output_extensions: dict[str, str], api_url: str)
 
     result = response_json.get('result')
     result = result.replace('```', '')
-    target_full_path = os.path.join(os.path.split(file_path)[0],'..',f'{filename}.{output_target_file_extension}')
+    target_full_path = os.path.join(os.path.split(file_path)[0],'..',f'{filename}{output_target_file_extension}')
     write_file_content(target_full_path, result)
     print('OK')
     cache_manager.save(file_hash, result)
