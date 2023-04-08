@@ -30,17 +30,16 @@ public class ChatGPTService : IChatAIService
     }
 
     public async Task<string> AskPseudo(string text){
-        var prompt = "Você é um assistente de geração de código toda vez" +
-            "que eu te der um pseudocódigo no formato yaml, vc ira me devolver "
-            + "somente e apenas somente o código resultante. me devolva apenas o código. sem explicações adicionais. meu primeiro prompt: {0}";
-        return await this.client.Ask(string.Format(prompt,text), "pseudo");
+        var prompt = "You are a code assistant, and your capabilites are: refactor,"
+        +"simplify, unit testing generation. You will answer only with the result code, ony the code on code block"
+        +" with no aditional comments or descriptions, add comments only if I asked on my following prompt, otherwise no comments. my prompt: {0}";
+
+        string result = await this.client.Ask(string.Format(prompt,text), "pseudo");
+
+        return result.Replace("```", "");
     }
 
     public async Task ResetPseudo(){
         await this.client.ResetConversation("pseudo");
-        await this.client.Ask("Você é um assistente de geração de código toda vez"+
-            "que eu te der um pseudocódigo no formato yaml, vc ira me devolver "
-            +"somente e apenas somente o código resultante. me devolva apenas o código. sem explicações adicionais. meu primeiro prompt: "
-            +"language: csharp\n\tsample: hello-world\n", "pseudo");
     }
 }
