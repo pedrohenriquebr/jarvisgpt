@@ -1,0 +1,3 @@
+[submodule "extensions/jarvisgpt"]
+	path = extensions/jarvisgpt
+	url = /home/pedrobr/Documents/repos/bots/jarvisgpt
